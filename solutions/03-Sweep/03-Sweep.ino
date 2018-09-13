@@ -1,12 +1,13 @@
 #include <Servo.h>
 
-static const int MIN_PULSE_WIDTH_US = 524;
-static const int MAX_PULSE_WIDTH_US = 2287;
+static const int MIN_PULSE_WIDTH_US = 900;
+static const int MAX_PULSE_WIDTH_US = 2100;
 static const int PULSE_PERIOD_MS = 20;
+static const int PULSE_STEP = 30;
 
 Servo myservo;
 unsigned long lastChangeTimestamp = 0;
-int pulseWidthStep = 50;
+int pulseWidthStep = PULSE_STEP;
 int currentPulseWidth = MIN_PULSE_WIDTH_US;
 
 void setup() {
@@ -14,15 +15,14 @@ void setup() {
 }
 
 void loop() {
-  unsigned long now = millis();
-  if ((now - lastChangeTimestamp) > PULSE_PERIOD_MS) {
+  if (millis() - lastChangeTimestamp > PULSE_PERIOD_MS) {
     currentPulseWidth += pulseWidthStep;
     if (currentPulseWidth > MAX_PULSE_WIDTH_US) {
       currentPulseWidth = MAX_PULSE_WIDTH_US;
-      pulseWidthStep = -20;
+      pulseWidthStep = -PULSE_STEP;
     } else if (currentPulseWidth < MIN_PULSE_WIDTH_US) {
       currentPulseWidth = MIN_PULSE_WIDTH_US;
-      pulseWidthStep = 20;
+      pulseWidthStep = PULSE_STEP;
     }
     myservo.writeMicroseconds(currentPulseWidth);
     lastChangeTimestamp = millis();
