@@ -1,0 +1,813 @@
+[
+  {
+      "id": "ed91000d.e405a",
+      "type": "tab",
+      "label": "Flow 1",
+      "disabled": false,
+      "info": ""
+  },
+  {
+      "id": "5fefee09.02475",
+      "type": "ui_slider",
+      "z": "ed91000d.e405a",
+      "name": "slider-01",
+      "label": "angle",
+      "group": "59ab61bf.f9432",
+      "order": 2,
+      "width": 0,
+      "height": 0,
+      "passthru": true,
+      "topic": "node-01",
+      "min": 0,
+      "max": "90",
+      "step": "1",
+      "x": 320,
+      "y": 120,
+      "wires": [
+          [
+              "8bcb8555.806e78",
+              "813b6898.1fff78"
+          ]
+      ]
+  },
+  {
+      "id": "794ee7a2.17c608",
+      "type": "inject",
+      "z": "ed91000d.e405a",
+      "name": "",
+      "topic": "",
+      "payload": "0",
+      "payloadType": "num",
+      "repeat": "",
+      "crontab": "",
+      "once": true,
+      "onceDelay": 0.1,
+      "x": 130,
+      "y": 300,
+      "wires": [
+          [
+              "5fefee09.02475",
+              "71ff7caa.87d6d4",
+              "55b738eb.6c6818",
+              "93d20a14.856f78",
+              "a3b67bca.910b88",
+              "fb250836.de9e98",
+              "34c9c1b4.3b040e",
+              "753eebc9.8dc0e4",
+              "9a4998f9.d4c668",
+              "4ca23d6b.b2d684",
+              "2913a14d.aa4e1e",
+              "250489aa.dacd16",
+              "e1ff3104.50e78"
+          ]
+      ]
+  },
+  {
+      "id": "8bcb8555.806e78",
+      "type": "ui_gauge",
+      "z": "ed91000d.e405a",
+      "name": "gauge-01",
+      "group": "59ab61bf.f9432",
+      "order": 1,
+      "width": 0,
+      "height": 0,
+      "gtype": "gage",
+      "title": "{{msg.topic}}",
+      "label": "degrés",
+      "format": "{{value}}",
+      "min": 0,
+      "max": "90",
+      "colors": [
+          "#0080ff",
+          "#e6e600",
+          "#00ff00"
+      ],
+      "seg1": "",
+      "seg2": "",
+      "x": 520,
+      "y": 100,
+      "wires": []
+  },
+  {
+      "id": "813b6898.1fff78",
+      "type": "function",
+      "z": "ed91000d.e405a",
+      "name": "store angle",
+      "func": "flow.set(msg.topic, msg.payload);\nreturn msg;",
+      "outputs": 1,
+      "noerr": 0,
+      "x": 530,
+      "y": 300,
+      "wires": [
+          []
+      ]
+  },
+  {
+      "id": "b9e0bdc7.b343c",
+      "type": "http in",
+      "z": "ed91000d.e405a",
+      "name": "",
+      "url": "/:node/angle",
+      "method": "get",
+      "upload": false,
+      "swaggerDoc": "",
+      "x": 790,
+      "y": 300,
+      "wires": [
+          [
+              "c1a3fda1.cd867"
+          ]
+      ]
+  },
+  {
+      "id": "2448f7ee.250fe8",
+      "type": "http response",
+      "z": "ed91000d.e405a",
+      "name": "",
+      "statusCode": "",
+      "headers": {
+          "Content-Type": "text/plain"
+      },
+      "x": 1250,
+      "y": 300,
+      "wires": []
+  },
+  {
+      "id": "c1a3fda1.cd867",
+      "type": "function",
+      "z": "ed91000d.e405a",
+      "name": "retrieve node angle",
+      "func": "const nodeId = msg.req.params.node\nmsg.payload = flow.get(nodeId);\nreturn msg;",
+      "outputs": 1,
+      "noerr": 0,
+      "x": 1050,
+      "y": 300,
+      "wires": [
+          [
+              "2448f7ee.250fe8"
+          ]
+      ]
+  },
+  {
+      "id": "71ff7caa.87d6d4",
+      "type": "ui_slider",
+      "z": "ed91000d.e405a",
+      "name": "slider-02",
+      "label": "angle",
+      "group": "799f8a.f923a078",
+      "order": 2,
+      "width": 0,
+      "height": 0,
+      "passthru": true,
+      "topic": "node-02",
+      "min": 0,
+      "max": "90",
+      "step": "1",
+      "x": 320,
+      "y": 160,
+      "wires": [
+          [
+              "a23e7e26.7203c",
+              "813b6898.1fff78"
+          ]
+      ]
+  },
+  {
+      "id": "a23e7e26.7203c",
+      "type": "ui_gauge",
+      "z": "ed91000d.e405a",
+      "name": "gauge-02",
+      "group": "799f8a.f923a078",
+      "order": 1,
+      "width": 0,
+      "height": 0,
+      "gtype": "gage",
+      "title": "{{msg.topic}}",
+      "label": "degrés",
+      "format": "{{value}}",
+      "min": 0,
+      "max": "90",
+      "colors": [
+          "#0080ff",
+          "#e6e600",
+          "#00ff00"
+      ],
+      "seg1": "",
+      "seg2": "",
+      "x": 520,
+      "y": 140,
+      "wires": []
+  },
+  {
+      "id": "55b738eb.6c6818",
+      "type": "ui_slider",
+      "z": "ed91000d.e405a",
+      "name": "slider-03",
+      "label": "angle",
+      "group": "3ecf487e.3328a8",
+      "order": 2,
+      "width": 0,
+      "height": 0,
+      "passthru": true,
+      "topic": "node-03",
+      "min": 0,
+      "max": "90",
+      "step": "1",
+      "x": 320,
+      "y": 200,
+      "wires": [
+          [
+              "794cc55f.edb64c",
+              "813b6898.1fff78"
+          ]
+      ]
+  },
+  {
+      "id": "794cc55f.edb64c",
+      "type": "ui_gauge",
+      "z": "ed91000d.e405a",
+      "name": "gauge-03",
+      "group": "3ecf487e.3328a8",
+      "order": 1,
+      "width": 0,
+      "height": 0,
+      "gtype": "gage",
+      "title": "{{msg.topic}}",
+      "label": "degrés",
+      "format": "{{value}}",
+      "min": 0,
+      "max": "90",
+      "colors": [
+          "#0080ff",
+          "#e6e600",
+          "#00ff00"
+      ],
+      "seg1": "",
+      "seg2": "",
+      "x": 520,
+      "y": 180,
+      "wires": []
+  },
+  {
+      "id": "93d20a14.856f78",
+      "type": "ui_slider",
+      "z": "ed91000d.e405a",
+      "name": "slider-04",
+      "label": "angle",
+      "group": "25e7e80a.d189b8",
+      "order": 2,
+      "width": 0,
+      "height": 0,
+      "passthru": true,
+      "topic": "node-04",
+      "min": 0,
+      "max": "90",
+      "step": "1",
+      "x": 320,
+      "y": 240,
+      "wires": [
+          [
+              "e032cb23.54d748",
+              "813b6898.1fff78"
+          ]
+      ]
+  },
+  {
+      "id": "e032cb23.54d748",
+      "type": "ui_gauge",
+      "z": "ed91000d.e405a",
+      "name": "gauge-04",
+      "group": "25e7e80a.d189b8",
+      "order": 1,
+      "width": 0,
+      "height": 0,
+      "gtype": "gage",
+      "title": "{{msg.topic}}",
+      "label": "degrés",
+      "format": "{{value}}",
+      "min": 0,
+      "max": "90",
+      "colors": [
+          "#0080ff",
+          "#e6e600",
+          "#00ff00"
+      ],
+      "seg1": "",
+      "seg2": "",
+      "x": 520,
+      "y": 220,
+      "wires": []
+  },
+  {
+      "id": "a3b67bca.910b88",
+      "type": "ui_slider",
+      "z": "ed91000d.e405a",
+      "name": "slider-05",
+      "label": "angle",
+      "group": "59ab61bf.f9432",
+      "order": 4,
+      "width": 0,
+      "height": 0,
+      "passthru": true,
+      "topic": "node-05",
+      "min": 0,
+      "max": "90",
+      "step": "1",
+      "x": 320,
+      "y": 280,
+      "wires": [
+          [
+              "620ef373.43e82c",
+              "813b6898.1fff78"
+          ]
+      ]
+  },
+  {
+      "id": "620ef373.43e82c",
+      "type": "ui_gauge",
+      "z": "ed91000d.e405a",
+      "name": "gauge-05",
+      "group": "59ab61bf.f9432",
+      "order": 3,
+      "width": 0,
+      "height": 0,
+      "gtype": "gage",
+      "title": "{{msg.topic}}",
+      "label": "degrés",
+      "format": "{{value}}",
+      "min": 0,
+      "max": "90",
+      "colors": [
+          "#0080ff",
+          "#e6e600",
+          "#00ff00"
+      ],
+      "seg1": "",
+      "seg2": "",
+      "x": 520,
+      "y": 260,
+      "wires": []
+  },
+  {
+      "id": "fb250836.de9e98",
+      "type": "ui_slider",
+      "z": "ed91000d.e405a",
+      "name": "slider-06",
+      "label": "angle",
+      "group": "799f8a.f923a078",
+      "order": 4,
+      "width": 0,
+      "height": 0,
+      "passthru": true,
+      "topic": "node-06",
+      "min": 0,
+      "max": "90",
+      "step": "1",
+      "x": 320,
+      "y": 320,
+      "wires": [
+          [
+              "32269e96.d6bd92",
+              "813b6898.1fff78"
+          ]
+      ]
+  },
+  {
+      "id": "32269e96.d6bd92",
+      "type": "ui_gauge",
+      "z": "ed91000d.e405a",
+      "name": "gauge-06",
+      "group": "799f8a.f923a078",
+      "order": 3,
+      "width": 0,
+      "height": 0,
+      "gtype": "gage",
+      "title": "{{msg.topic}}",
+      "label": "degrés",
+      "format": "{{value}}",
+      "min": 0,
+      "max": "90",
+      "colors": [
+          "#0080ff",
+          "#e6e600",
+          "#00ff00"
+      ],
+      "seg1": "",
+      "seg2": "",
+      "x": 520,
+      "y": 340,
+      "wires": []
+  },
+  {
+      "id": "34c9c1b4.3b040e",
+      "type": "ui_slider",
+      "z": "ed91000d.e405a",
+      "name": "slider-07",
+      "label": "angle",
+      "group": "3ecf487e.3328a8",
+      "order": 4,
+      "width": 0,
+      "height": 0,
+      "passthru": true,
+      "topic": "node-07",
+      "min": 0,
+      "max": "90",
+      "step": "1",
+      "x": 320,
+      "y": 360,
+      "wires": [
+          [
+              "b0605492.73b358",
+              "813b6898.1fff78"
+          ]
+      ]
+  },
+  {
+      "id": "b0605492.73b358",
+      "type": "ui_gauge",
+      "z": "ed91000d.e405a",
+      "name": "gauge-07",
+      "group": "3ecf487e.3328a8",
+      "order": 3,
+      "width": 0,
+      "height": 0,
+      "gtype": "gage",
+      "title": "{{msg.topic}}",
+      "label": "degrés",
+      "format": "{{value}}",
+      "min": 0,
+      "max": "90",
+      "colors": [
+          "#0080ff",
+          "#e6e600",
+          "#00ff00"
+      ],
+      "seg1": "",
+      "seg2": "",
+      "x": 520,
+      "y": 380,
+      "wires": []
+  },
+  {
+      "id": "753eebc9.8dc0e4",
+      "type": "ui_slider",
+      "z": "ed91000d.e405a",
+      "name": "slider-08",
+      "label": "angle",
+      "group": "25e7e80a.d189b8",
+      "order": 4,
+      "width": 0,
+      "height": 0,
+      "passthru": true,
+      "topic": "node-08",
+      "min": 0,
+      "max": "90",
+      "step": "1",
+      "x": 320,
+      "y": 400,
+      "wires": [
+          [
+              "9e175ab5.7e1528",
+              "813b6898.1fff78"
+          ]
+      ]
+  },
+  {
+      "id": "9e175ab5.7e1528",
+      "type": "ui_gauge",
+      "z": "ed91000d.e405a",
+      "name": "gauge-08",
+      "group": "25e7e80a.d189b8",
+      "order": 3,
+      "width": 0,
+      "height": 0,
+      "gtype": "gage",
+      "title": "{{msg.topic}}",
+      "label": "degrés",
+      "format": "{{value}}",
+      "min": 0,
+      "max": "90",
+      "colors": [
+          "#0080ff",
+          "#e6e600",
+          "#00ff00"
+      ],
+      "seg1": "",
+      "seg2": "",
+      "x": 520,
+      "y": 420,
+      "wires": []
+  },
+  {
+      "id": "9a4998f9.d4c668",
+      "type": "ui_slider",
+      "z": "ed91000d.e405a",
+      "name": "slider-09",
+      "label": "angle",
+      "group": "59ab61bf.f9432",
+      "order": 6,
+      "width": 0,
+      "height": 0,
+      "passthru": true,
+      "topic": "node-09",
+      "min": 0,
+      "max": "90",
+      "step": "1",
+      "x": 320,
+      "y": 440,
+      "wires": [
+          [
+              "c3e7e628.b9ee18",
+              "813b6898.1fff78"
+          ]
+      ]
+  },
+  {
+      "id": "c3e7e628.b9ee18",
+      "type": "ui_gauge",
+      "z": "ed91000d.e405a",
+      "name": "gauge-09",
+      "group": "59ab61bf.f9432",
+      "order": 5,
+      "width": 0,
+      "height": 0,
+      "gtype": "gage",
+      "title": "{{msg.topic}}",
+      "label": "degrés",
+      "format": "{{value}}",
+      "min": 0,
+      "max": "90",
+      "colors": [
+          "#0080ff",
+          "#e6e600",
+          "#00ff00"
+      ],
+      "seg1": "",
+      "seg2": "",
+      "x": 520,
+      "y": 460,
+      "wires": []
+  },
+  {
+      "id": "4ca23d6b.b2d684",
+      "type": "ui_slider",
+      "z": "ed91000d.e405a",
+      "name": "slider-10",
+      "label": "angle",
+      "group": "799f8a.f923a078",
+      "order": 6,
+      "width": 0,
+      "height": 0,
+      "passthru": true,
+      "topic": "node-10",
+      "min": 0,
+      "max": "90",
+      "step": "1",
+      "x": 320,
+      "y": 480,
+      "wires": [
+          [
+              "80c1ecf5.b563e",
+              "813b6898.1fff78"
+          ]
+      ]
+  },
+  {
+      "id": "80c1ecf5.b563e",
+      "type": "ui_gauge",
+      "z": "ed91000d.e405a",
+      "name": "gauge-10",
+      "group": "799f8a.f923a078",
+      "order": 5,
+      "width": 0,
+      "height": 0,
+      "gtype": "gage",
+      "title": "{{msg.topic}}",
+      "label": "degrés",
+      "format": "{{value}}",
+      "min": 0,
+      "max": "90",
+      "colors": [
+          "#0080ff",
+          "#e6e600",
+          "#00ff00"
+      ],
+      "seg1": "",
+      "seg2": "",
+      "x": 520,
+      "y": 500,
+      "wires": []
+  },
+  {
+      "id": "2913a14d.aa4e1e",
+      "type": "ui_slider",
+      "z": "ed91000d.e405a",
+      "name": "slider-11",
+      "label": "angle",
+      "group": "3ecf487e.3328a8",
+      "order": 6,
+      "width": 0,
+      "height": 0,
+      "passthru": true,
+      "topic": "node-11",
+      "min": 0,
+      "max": "90",
+      "step": "1",
+      "x": 320,
+      "y": 520,
+      "wires": [
+          [
+              "4ffb7131.ac902",
+              "813b6898.1fff78"
+          ]
+      ]
+  },
+  {
+      "id": "4ffb7131.ac902",
+      "type": "ui_gauge",
+      "z": "ed91000d.e405a",
+      "name": "gauge-11",
+      "group": "3ecf487e.3328a8",
+      "order": 5,
+      "width": 0,
+      "height": 0,
+      "gtype": "gage",
+      "title": "{{msg.topic}}",
+      "label": "degrés",
+      "format": "{{value}}",
+      "min": 0,
+      "max": "90",
+      "colors": [
+          "#0080ff",
+          "#e6e600",
+          "#00ff00"
+      ],
+      "seg1": "",
+      "seg2": "",
+      "x": 520,
+      "y": 540,
+      "wires": []
+  },
+  {
+      "id": "250489aa.dacd16",
+      "type": "ui_slider",
+      "z": "ed91000d.e405a",
+      "name": "slider-12",
+      "label": "angle",
+      "group": "25e7e80a.d189b8",
+      "order": 6,
+      "width": 0,
+      "height": 0,
+      "passthru": true,
+      "topic": "node-12",
+      "min": 0,
+      "max": "90",
+      "step": "1",
+      "x": 320,
+      "y": 560,
+      "wires": [
+          [
+              "91c6142d.752ed8",
+              "813b6898.1fff78"
+          ]
+      ]
+  },
+  {
+      "id": "91c6142d.752ed8",
+      "type": "ui_gauge",
+      "z": "ed91000d.e405a",
+      "name": "gauge-12",
+      "group": "25e7e80a.d189b8",
+      "order": 5,
+      "width": 0,
+      "height": 0,
+      "gtype": "gage",
+      "title": "{{msg.topic}}",
+      "label": "degrés",
+      "format": "{{value}}",
+      "min": 0,
+      "max": "90",
+      "colors": [
+          "#0080ff",
+          "#e6e600",
+          "#00ff00"
+      ],
+      "seg1": "",
+      "seg2": "",
+      "x": 520,
+      "y": 580,
+      "wires": []
+  },
+  {
+      "id": "e1ff3104.50e78",
+      "type": "ui_slider",
+      "z": "ed91000d.e405a",
+      "name": "slider-00",
+      "label": "angle",
+      "group": "6c5986ae.086e68",
+      "order": 2,
+      "width": 0,
+      "height": 0,
+      "passthru": true,
+      "topic": "node-00",
+      "min": 0,
+      "max": "90",
+      "step": "1",
+      "x": 320,
+      "y": 80,
+      "wires": [
+          [
+              "3a6fa901.0efdf6",
+              "813b6898.1fff78"
+          ]
+      ]
+  },
+  {
+      "id": "3a6fa901.0efdf6",
+      "type": "ui_gauge",
+      "z": "ed91000d.e405a",
+      "name": "gauge-00",
+      "group": "6c5986ae.086e68",
+      "order": 1,
+      "width": 0,
+      "height": 0,
+      "gtype": "gage",
+      "title": "{{msg.topic}}",
+      "label": "degrés",
+      "format": "{{value}}",
+      "min": 0,
+      "max": "90",
+      "colors": [
+          "#0080ff",
+          "#e6e600",
+          "#00ff00"
+      ],
+      "seg1": "",
+      "seg2": "",
+      "x": 520,
+      "y": 60,
+      "wires": []
+  },
+  {
+      "id": "59ab61bf.f9432",
+      "type": "ui_group",
+      "z": "",
+      "name": "Group 1",
+      "tab": "856e80bf.91dde",
+      "order": 2,
+      "disp": false,
+      "width": "6",
+      "collapse": false
+  },
+  {
+      "id": "799f8a.f923a078",
+      "type": "ui_group",
+      "z": "",
+      "name": "Group 2",
+      "tab": "856e80bf.91dde",
+      "order": 3,
+      "disp": false,
+      "width": "6",
+      "collapse": false
+  },
+  {
+      "id": "3ecf487e.3328a8",
+      "type": "ui_group",
+      "z": "",
+      "name": "Group 3",
+      "tab": "856e80bf.91dde",
+      "order": 4,
+      "disp": false,
+      "width": "6",
+      "collapse": false
+  },
+  {
+      "id": "25e7e80a.d189b8",
+      "type": "ui_group",
+      "z": "",
+      "name": "Group 4",
+      "tab": "856e80bf.91dde",
+      "order": 5,
+      "disp": false,
+      "width": "6",
+      "collapse": false
+  },
+  {
+      "id": "6c5986ae.086e68",
+      "type": "ui_group",
+      "z": "",
+      "name": "Group 0",
+      "tab": "856e80bf.91dde",
+      "order": 1,
+      "disp": false,
+      "width": "6",
+      "collapse": false
+  },
+  {
+      "id": "856e80bf.91dde",
+      "type": "ui_tab",
+      "z": "",
+      "name": "Fab-IoT-Lab",
+      "icon": "dashboard"
+  }
+]
