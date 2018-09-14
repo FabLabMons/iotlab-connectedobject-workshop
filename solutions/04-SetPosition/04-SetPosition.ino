@@ -15,7 +15,7 @@ void setup() {
   Serial.println();
   myservo.attach(D1);
   myservo.writeMicroseconds(currentPulseWidth);
-  delay(1000);
+  delay(300);
   Serial.println("Angle du servo (entre 0 et 90) ? ");
 }
 

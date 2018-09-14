@@ -41,6 +41,7 @@ void setup() {
 
   myservo.attach(D1);
   myservo.writeMicroseconds(currentPulseWidth);
+  delay(300);
 }
 
 void loop() {
@@ -60,8 +61,8 @@ void loop() {
 
   if (millis() - lastPingTimestamp > 1000) {
     HTTPClient http;
-    Serial.println("Opening connection");
-    http.begin("http://192.168.1.100/red/" + NODE_ID + "/angle");
+    String url = String("http://192.168.1.22/red/") + NODE_ID + "/angle";
+    http.begin(url);
     http.GET();
     String serverAnswer = http.getString();
     http.end();
