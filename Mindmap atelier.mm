@@ -3,7 +3,7 @@
 <node TEXT="Atelier &quot;cr&#xe9;e ton premier objet connect&#xe9;&quot;" FOLDED="false" ID="ID_191153586" CREATED="1536757694025" MODIFIED="1536758391083" ICON_SIZE="36.0 pt" STYLE="oval">
 <font SIZE="22"/>
 <hook NAME="MapStyle" zoom="0.752">
-    <properties show_icon_for_attributes="true" fit_to_viewport="false" show_note_icons="true" edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff"/>
+    <properties fit_to_viewport="false" show_icon_for_attributes="true" show_note_icons="true" edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff"/>
 
 <map_styles>
 <stylenode LOCALIZED_TEXT="styles.root_node" STYLE="oval" UNIFORM_SHAPE="true" VGAP_QUANTITY="24.0 pt">
@@ -93,7 +93,7 @@
 <icon BUILTIN="full-1"/>
 <node TEXT="IDE Arduino" ID="ID_927230819" CREATED="1536758413084" MODIFIED="1536758787534"/>
 <node TEXT="board ESP8266" ID="ID_136859049" CREATED="1536758415499" MODIFIED="1536758425826"/>
-<node TEXT="configurer Arduino pour ESP8266" FOLDED="true" ID="ID_1618449780" CREATED="1536758426782" MODIFIED="1536758437094">
+<node TEXT="configurer Arduino pour ESP8266" ID="ID_1618449780" CREATED="1536758426782" MODIFIED="1536758437094">
 <node TEXT="preferences &gt; additional board manager urls" ID="ID_1120847451" CREATED="1536760646012" MODIFIED="1536760727693">
 <node TEXT="http://arduino.esp8266.com/stable/package_esp8266com_index.json" ID="ID_1077773300" CREATED="1536760657971" MODIFIED="1536760659131"/>
 </node>
@@ -109,7 +109,7 @@
 </node>
 <node TEXT="Contr&#xf4;le servomoteur" ID="ID_371478642" CREATED="1536758491460" MODIFIED="1536758543428">
 <icon BUILTIN="full-3"/>
-<node TEXT="contr&#xf4;le d&apos;angle via PWM" ID="ID_1077747300" CREATED="1536758918082" MODIFIED="1536758926920"/>
+<node TEXT="contr&#xf4;le d&apos;angle via pulse" ID="ID_1077747300" CREATED="1536758918082" MODIFIED="1536936445239"/>
 <node TEXT="sweep servo" ID="ID_1682309774" CREATED="1536758511206" MODIFIED="1536758514550"/>
 <node TEXT="commande servo depuis port s&#xe9;rie" ID="ID_569952990" CREATED="1536758514827" MODIFIED="1536758532114"/>
 <node TEXT="packaging servo dans bo&#xee;tier" ID="ID_1934330335" CREATED="1536758836664" MODIFIED="1536758846664"/>
@@ -166,11 +166,6 @@
 </node>
 </node>
 </node>
-</node>
-<node TEXT="IDEA 6" FOLDED="true" POSITION="left" ID="ID_25434398" CREATED="1536757694025" MODIFIED="1536757694025" HGAP_QUANTITY="73.70731985079694 pt" VSHIFT_QUANTITY="-37.75609931741573 pt">
-<edge COLOR="#cc00ff"/>
-<node TEXT="IDEA 6.1" ID="ID_352937383" CREATED="1536757694025" MODIFIED="1536757694025" HGAP_QUANTITY="13.121951178664752 pt" VSHIFT_QUANTITY="-9.658537034687741 pt"/>
-<node TEXT="IDEA 6.2" ID="ID_966834988" CREATED="1536757694025" MODIFIED="1536757694025" HGAP_QUANTITY="15.756097642670499 pt" VSHIFT_QUANTITY="-7.902439392017243 pt"/>
 </node>
 <node TEXT="Tricks" POSITION="left" ID="ID_1822402846" CREATED="1536757694025" MODIFIED="1536763459466" HGAP_QUANTITY="84.24390570681993 pt" VSHIFT_QUANTITY="-36.00000167474521 pt">
 <edge COLOR="#ff9900"/>

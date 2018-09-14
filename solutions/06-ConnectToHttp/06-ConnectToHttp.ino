@@ -33,7 +33,7 @@ void loop() {
   if (millis() - lastPingTimestamp > 1000) {
     HTTPClient http;
     Serial.println("Opening connection");
-    http.begin("http://192.168.1.100/red/ping");
+    http.begin("http://192.168.1.22/red/ping");
     int httpStatus = http.POST("");
     Serial.print("HTTP response: ");
     Serial.print(httpStatus);
