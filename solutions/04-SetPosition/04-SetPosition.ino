@@ -11,7 +11,7 @@ int currentPulseWidth = MIN_PULSE_WIDTH_US;
 int desiredPulseWidth = currentPulseWidth;
 
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(115200);
   Serial.println();
   myservo.attach(D1);
   myservo.writeMicroseconds(currentPulseWidth);
