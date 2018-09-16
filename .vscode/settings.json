@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "Dockerfile.template": "dockerfile",
+        "array": "cpp",
+        "deque": "cpp",
+        "unordered_map": "cpp",
+        "vector": "cpp",
+        "initializer_list": "cpp"
+    }
+}

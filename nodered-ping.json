@@ -1,0 +1,150 @@
+[
+  {
+      "id": "1e121c8a.96d103",
+      "type": "tab",
+      "label": "Ping",
+      "disabled": false,
+      "info": ""
+  },
+  {
+      "id": "fe82a41d.f270f8",
+      "type": "http in",
+      "z": "1e121c8a.96d103",
+      "name": "",
+      "url": "/:id/ping",
+      "method": "post",
+      "upload": false,
+      "swaggerDoc": "",
+      "x": 130,
+      "y": 80,
+      "wires": [
+          [
+              "f3db76e7.4e5da8",
+              "b831621b.d3393"
+          ]
+      ]
+  },
+  {
+      "id": "c2bf1b20.698e48",
+      "type": "http response",
+      "z": "1e121c8a.96d103",
+      "name": "",
+      "statusCode": "",
+      "headers": {},
+      "x": 870,
+      "y": 80,
+      "wires": []
+  },
+  {
+      "id": "f3db76e7.4e5da8",
+      "type": "debug",
+      "z": "1e121c8a.96d103",
+      "name": "HTTP request",
+      "active": false,
+      "tosidebar": true,
+      "console": false,
+      "tostatus": false,
+      "complete": "true",
+      "x": 360,
+      "y": 160,
+      "wires": []
+  },
+  {
+      "id": "b831621b.d3393",
+      "type": "function",
+      "z": "1e121c8a.96d103",
+      "name": "Extract info",
+      "func": "const nodeId = msg.req.params.id;\nconst received = new Date();\nmsg.topic = nodeId;\nmsg.payload = received;\nmsg.statusCode = 200;\nmsg.headers = {\n    \"content-type\": \"plain/text\"\n};\nreturn msg;",
+      "outputs": 1,
+      "noerr": 0,
+      "x": 370,
+      "y": 80,
+      "wires": [
+          [
+              "c2bf1b20.698e48",
+              "8ab69150.3d52"
+          ]
+      ]
+  },
+  {
+      "id": "56258a55.749674",
+      "type": "ui_template",
+      "z": "1e121c8a.96d103",
+      "group": "2a45e9bb.a3f506",
+      "name": "",
+      "order": 0,
+      "width": "6",
+      "height": "8",
+      "format": "<table class=\"table table-striped\">\n  <thead>\n    <tr>\n      <th style=\"text-align: left;\">ID</th>\n      <th style=\"text-align: right;\">Dernier message reçu</th>\n    </tr>\n  </thead>\n  <tr ng-repeat=\"node in msg.payload | orderBy\">\n    <td style=\"text-align: left;\">{{ node[0] }}</td>\n    <td style=\"text-align: right;\">{{ node[1] | date:\"HH:mm:ss\" }}</td>\n  </tr>\n</table>",
+      "storeOutMessages": true,
+      "fwdInMessages": true,
+      "templateScope": "local",
+      "x": 1099,
+      "y": 161,
+      "wires": [
+          []
+      ]
+  },
+  {
+      "id": "162d0a44.82c1a6",
+      "type": "debug",
+      "z": "1e121c8a.96d103",
+      "name": "",
+      "active": true,
+      "tosidebar": true,
+      "console": false,
+      "tostatus": false,
+      "complete": "false",
+      "x": 1105,
+      "y": 248,
+      "wires": []
+  },
+  {
+      "id": "5e07b411.b53a6c",
+      "type": "function",
+      "z": "1e121c8a.96d103",
+      "name": "Turn object into array",
+      "func": "msg.payload = Object.entries(msg.payload);\nreturn msg;",
+      "outputs": 1,
+      "noerr": 0,
+      "x": 872,
+      "y": 215,
+      "wires": [
+          [
+              "162d0a44.82c1a6",
+              "56258a55.749674"
+          ]
+      ]
+  },
+  {
+      "id": "8ab69150.3d52",
+      "type": "collector",
+      "z": "1e121c8a.96d103",
+      "name": "",
+      "onlyIfChanged": true,
+      "x": 650,
+      "y": 155,
+      "wires": [
+          [
+              "5e07b411.b53a6c"
+          ]
+      ]
+  },
+  {
+      "id": "2a45e9bb.a3f506",
+      "type": "ui_group",
+      "z": "",
+      "name": "Table",
+      "tab": "4b9bb218.747c1c",
+      "disp": true,
+      "width": "6",
+      "collapse": false
+  },
+  {
+      "id": "4b9bb218.747c1c",
+      "type": "ui_tab",
+      "z": "",
+      "name": "Ping",
+      "icon": "fa-heartbeat"
+  }
+]
