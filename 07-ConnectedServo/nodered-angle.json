@@ -1,18 +1,18 @@
 [
   {
-      "id": "ed91000d.e405a",
+      "id": "5bf3c3b5.f76d5c",
       "type": "tab",
-      "label": "Flow 1",
+      "label": "Angle",
       "disabled": false,
       "info": ""
   },
   {
-      "id": "5fefee09.02475",
+      "id": "fb2c2e57.52a2d",
       "type": "ui_slider",
-      "z": "ed91000d.e405a",
+      "z": "5bf3c3b5.f76d5c",
       "name": "slider-01",
       "label": "angle",
-      "group": "59ab61bf.f9432",
+      "group": "7d5d76ed.482548",
       "order": 2,
       "width": 0,
       "height": 0,
@@ -25,15 +25,15 @@
       "y": 120,
       "wires": [
           [
-              "8bcb8555.806e78",
-              "813b6898.1fff78"
+              "f19d0dc7.3dcd9",
+              "fadc32b.8ecc7d"
           ]
       ]
   },
   {
-      "id": "794ee7a2.17c608",
+      "id": "4a9dc366.252f3c",
       "type": "inject",
-      "z": "ed91000d.e405a",
+      "z": "5bf3c3b5.f76d5c",
       "name": "",
       "topic": "",
       "payload": "0",
@@ -46,28 +46,28 @@
       "y": 300,
       "wires": [
           [
-              "5fefee09.02475",
-              "71ff7caa.87d6d4",
-              "55b738eb.6c6818",
-              "93d20a14.856f78",
-              "a3b67bca.910b88",
-              "fb250836.de9e98",
-              "34c9c1b4.3b040e",
-              "753eebc9.8dc0e4",
-              "9a4998f9.d4c668",
-              "4ca23d6b.b2d684",
-              "2913a14d.aa4e1e",
-              "250489aa.dacd16",
-              "e1ff3104.50e78"
+              "fb2c2e57.52a2d",
+              "9d2e6392.880d6",
+              "3a35603b.1882e",
+              "20f65dee.c55f52",
+              "9a9cad6c.0b345",
+              "72b8668a.244d28",
+              "be690024.9afc",
+              "81159f8a.f3f91",
+              "c8a8a933.741db8",
+              "dad54937.1a0268",
+              "844e5523.e7cb88",
+              "4efe3543.aee1dc",
+              "75bfd9bc.786c28"
           ]
       ]
   },
   {
-      "id": "8bcb8555.806e78",
+      "id": "f19d0dc7.3dcd9",
       "type": "ui_gauge",
-      "z": "ed91000d.e405a",
+      "z": "5bf3c3b5.f76d5c",
       "name": "gauge-01",
-      "group": "59ab61bf.f9432",
+      "group": "7d5d76ed.482548",
       "order": 1,
       "width": 0,
       "height": 0,
@@ -89,9 +89,9 @@
       "wires": []
   },
   {
-      "id": "813b6898.1fff78",
+      "id": "fadc32b.8ecc7d",
       "type": "function",
-      "z": "ed91000d.e405a",
+      "z": "5bf3c3b5.f76d5c",
       "name": "store angle",
       "func": "flow.set(msg.topic, msg.payload);\nreturn msg;",
       "outputs": 1,
@@ -103,26 +103,26 @@
       ]
   },
   {
-      "id": "b9e0bdc7.b343c",
+      "id": "ccd99362.dca8d",
       "type": "http in",
-      "z": "ed91000d.e405a",
+      "z": "5bf3c3b5.f76d5c",
       "name": "",
-      "url": "/:node/angle",
+      "url": "/:id/angle",
       "method": "get",
       "upload": false,
       "swaggerDoc": "",
-      "x": 790,
+      "x": 780,
       "y": 300,
       "wires": [
           [
-              "c1a3fda1.cd867"
+              "d1948e68.1ca4e"
           ]
       ]
   },
   {
-      "id": "2448f7ee.250fe8",
+      "id": "e9d8c968.7507c8",
       "type": "http response",
-      "z": "ed91000d.e405a",
+      "z": "5bf3c3b5.f76d5c",
       "name": "",
       "statusCode": "",
       "headers": {
@@ -133,28 +133,28 @@
       "wires": []
   },
   {
-      "id": "c1a3fda1.cd867",
+      "id": "d1948e68.1ca4e",
       "type": "function",
-      "z": "ed91000d.e405a",
+      "z": "5bf3c3b5.f76d5c",
       "name": "retrieve node angle",
-      "func": "const nodeId = msg.req.params.node\nmsg.payload = flow.get(nodeId);\nreturn msg;",
+      "func": "const nodeId = msg.req.params.id\nmsg.payload = flow.get(nodeId);\nreturn msg;",
       "outputs": 1,
       "noerr": 0,
       "x": 1050,
       "y": 300,
       "wires": [
           [
-              "2448f7ee.250fe8"
+              "e9d8c968.7507c8"
           ]
       ]
   },
   {
-      "id": "71ff7caa.87d6d4",
+      "id": "9d2e6392.880d6",
       "type": "ui_slider",
-      "z": "ed91000d.e405a",
+      "z": "5bf3c3b5.f76d5c",
       "name": "slider-02",
       "label": "angle",
-      "group": "799f8a.f923a078",
+      "group": "49a1e891.bc6ae8",
       "order": 2,
       "width": 0,
       "height": 0,
@@ -167,17 +167,17 @@
       "y": 160,
       "wires": [
           [
-              "a23e7e26.7203c",
-              "813b6898.1fff78"
+              "f96e839f.a42da",
+              "fadc32b.8ecc7d"
           ]
       ]
   },
   {
-      "id": "a23e7e26.7203c",
+      "id": "f96e839f.a42da",
       "type": "ui_gauge",
-      "z": "ed91000d.e405a",
+      "z": "5bf3c3b5.f76d5c",
       "name": "gauge-02",
-      "group": "799f8a.f923a078",
+      "group": "49a1e891.bc6ae8",
       "order": 1,
       "width": 0,
       "height": 0,
@@ -199,12 +199,12 @@
       "wires": []
   },
   {
-      "id": "55b738eb.6c6818",
+      "id": "3a35603b.1882e",
       "type": "ui_slider",
-      "z": "ed91000d.e405a",
+      "z": "5bf3c3b5.f76d5c",
       "name": "slider-03",
       "label": "angle",
-      "group": "3ecf487e.3328a8",
+      "group": "4b524cf6.b2e434",
       "order": 2,
       "width": 0,
       "height": 0,
@@ -217,17 +217,17 @@
       "y": 200,
       "wires": [
           [
-              "794cc55f.edb64c",
-              "813b6898.1fff78"
+              "71c591a2.12874",
+              "fadc32b.8ecc7d"
           ]
       ]
   },
   {
-      "id": "794cc55f.edb64c",
+      "id": "71c591a2.12874",
       "type": "ui_gauge",
-      "z": "ed91000d.e405a",
+      "z": "5bf3c3b5.f76d5c",
       "name": "gauge-03",
-      "group": "3ecf487e.3328a8",
+      "group": "4b524cf6.b2e434",
       "order": 1,
       "width": 0,
       "height": 0,
@@ -249,12 +249,12 @@
       "wires": []
   },
   {
-      "id": "93d20a14.856f78",
+      "id": "20f65dee.c55f52",
       "type": "ui_slider",
-      "z": "ed91000d.e405a",
+      "z": "5bf3c3b5.f76d5c",
       "name": "slider-04",
       "label": "angle",
-      "group": "25e7e80a.d189b8",
+      "group": "f9b8d40f.f923c8",
       "order": 2,
       "width": 0,
       "height": 0,
@@ -267,17 +267,17 @@
       "y": 240,
       "wires": [
           [
-              "e032cb23.54d748",
-              "813b6898.1fff78"
+              "7264107e.22407",
+              "fadc32b.8ecc7d"
           ]
       ]
   },
   {
-      "id": "e032cb23.54d748",
+      "id": "7264107e.22407",
       "type": "ui_gauge",
-      "z": "ed91000d.e405a",
+      "z": "5bf3c3b5.f76d5c",
       "name": "gauge-04",
-      "group": "25e7e80a.d189b8",
+      "group": "f9b8d40f.f923c8",
       "order": 1,
       "width": 0,
       "height": 0,
@@ -299,12 +299,12 @@
       "wires": []
   },
   {
-      "id": "a3b67bca.910b88",
+      "id": "9a9cad6c.0b345",
       "type": "ui_slider",
-      "z": "ed91000d.e405a",
+      "z": "5bf3c3b5.f76d5c",
       "name": "slider-05",
       "label": "angle",
-      "group": "59ab61bf.f9432",
+      "group": "7d5d76ed.482548",
       "order": 4,
       "width": 0,
       "height": 0,
@@ -317,17 +317,17 @@
       "y": 280,
       "wires": [
           [
-              "620ef373.43e82c",
-              "813b6898.1fff78"
+              "ca5af345.4d164",
+              "fadc32b.8ecc7d"
           ]
       ]
   },
   {
-      "id": "620ef373.43e82c",
+      "id": "ca5af345.4d164",
       "type": "ui_gauge",
-      "z": "ed91000d.e405a",
+      "z": "5bf3c3b5.f76d5c",
       "name": "gauge-05",
-      "group": "59ab61bf.f9432",
+      "group": "7d5d76ed.482548",
       "order": 3,
       "width": 0,
       "height": 0,
@@ -349,12 +349,12 @@
       "wires": []
   },
   {
-      "id": "fb250836.de9e98",
+      "id": "72b8668a.244d28",
       "type": "ui_slider",
-      "z": "ed91000d.e405a",
+      "z": "5bf3c3b5.f76d5c",
       "name": "slider-06",
       "label": "angle",
-      "group": "799f8a.f923a078",
+      "group": "49a1e891.bc6ae8",
       "order": 4,
       "width": 0,
       "height": 0,
@@ -367,17 +367,17 @@
       "y": 320,
       "wires": [
           [
-              "32269e96.d6bd92",
-              "813b6898.1fff78"
+              "c10cf81b.504018",
+              "fadc32b.8ecc7d"
           ]
       ]
   },
   {
-      "id": "32269e96.d6bd92",
+      "id": "c10cf81b.504018",
       "type": "ui_gauge",
-      "z": "ed91000d.e405a",
+      "z": "5bf3c3b5.f76d5c",
       "name": "gauge-06",
-      "group": "799f8a.f923a078",
+      "group": "49a1e891.bc6ae8",
       "order": 3,
       "width": 0,
       "height": 0,
@@ -399,12 +399,12 @@
       "wires": []
   },
   {
-      "id": "34c9c1b4.3b040e",
+      "id": "be690024.9afc",
       "type": "ui_slider",
-      "z": "ed91000d.e405a",
+      "z": "5bf3c3b5.f76d5c",
       "name": "slider-07",
       "label": "angle",
-      "group": "3ecf487e.3328a8",
+      "group": "4b524cf6.b2e434",
       "order": 4,
       "width": 0,
       "height": 0,
@@ -417,17 +417,17 @@
       "y": 360,
       "wires": [
           [
-              "b0605492.73b358",
-              "813b6898.1fff78"
+              "6b96e61c.54c858",
+              "fadc32b.8ecc7d"
           ]
       ]
   },
   {
-      "id": "b0605492.73b358",
+      "id": "6b96e61c.54c858",
       "type": "ui_gauge",
-      "z": "ed91000d.e405a",
+      "z": "5bf3c3b5.f76d5c",
       "name": "gauge-07",
-      "group": "3ecf487e.3328a8",
+      "group": "4b524cf6.b2e434",
       "order": 3,
       "width": 0,
       "height": 0,
@@ -449,12 +449,12 @@
       "wires": []
   },
   {
-      "id": "753eebc9.8dc0e4",
+      "id": "81159f8a.f3f91",
       "type": "ui_slider",
-      "z": "ed91000d.e405a",
+      "z": "5bf3c3b5.f76d5c",
       "name": "slider-08",
       "label": "angle",
-      "group": "25e7e80a.d189b8",
+      "group": "f9b8d40f.f923c8",
       "order": 4,
       "width": 0,
       "height": 0,
@@ -467,17 +467,17 @@
       "y": 400,
       "wires": [
           [
-              "9e175ab5.7e1528",
-              "813b6898.1fff78"
+              "f0668626.02b738",
+              "fadc32b.8ecc7d"
           ]
       ]
   },
   {
-      "id": "9e175ab5.7e1528",
+      "id": "f0668626.02b738",
       "type": "ui_gauge",
-      "z": "ed91000d.e405a",
+      "z": "5bf3c3b5.f76d5c",
       "name": "gauge-08",
-      "group": "25e7e80a.d189b8",
+      "group": "f9b8d40f.f923c8",
       "order": 3,
       "width": 0,
       "height": 0,
@@ -499,12 +499,12 @@
       "wires": []
   },
   {
-      "id": "9a4998f9.d4c668",
+      "id": "c8a8a933.741db8",
       "type": "ui_slider",
-      "z": "ed91000d.e405a",
+      "z": "5bf3c3b5.f76d5c",
       "name": "slider-09",
       "label": "angle",
-      "group": "59ab61bf.f9432",
+      "group": "7d5d76ed.482548",
       "order": 6,
       "width": 0,
       "height": 0,
@@ -517,17 +517,17 @@
       "y": 440,
       "wires": [
           [
-              "c3e7e628.b9ee18",
-              "813b6898.1fff78"
+              "c06437c4.1ab508",
+              "fadc32b.8ecc7d"
           ]
       ]
   },
   {
-      "id": "c3e7e628.b9ee18",
+      "id": "c06437c4.1ab508",
       "type": "ui_gauge",
-      "z": "ed91000d.e405a",
+      "z": "5bf3c3b5.f76d5c",
       "name": "gauge-09",
-      "group": "59ab61bf.f9432",
+      "group": "7d5d76ed.482548",
       "order": 5,
       "width": 0,
       "height": 0,
@@ -549,12 +549,12 @@
       "wires": []
   },
   {
-      "id": "4ca23d6b.b2d684",
+      "id": "dad54937.1a0268",
       "type": "ui_slider",
-      "z": "ed91000d.e405a",
+      "z": "5bf3c3b5.f76d5c",
       "name": "slider-10",
       "label": "angle",
-      "group": "799f8a.f923a078",
+      "group": "49a1e891.bc6ae8",
       "order": 6,
       "width": 0,
       "height": 0,
@@ -567,17 +567,17 @@
       "y": 480,
       "wires": [
           [
-              "80c1ecf5.b563e",
-              "813b6898.1fff78"
+              "cd021773.bd7538",
+              "fadc32b.8ecc7d"
           ]
       ]
   },
   {
-      "id": "80c1ecf5.b563e",
+      "id": "cd021773.bd7538",
       "type": "ui_gauge",
-      "z": "ed91000d.e405a",
+      "z": "5bf3c3b5.f76d5c",
       "name": "gauge-10",
-      "group": "799f8a.f923a078",
+      "group": "49a1e891.bc6ae8",
       "order": 5,
       "width": 0,
       "height": 0,
@@ -599,12 +599,12 @@
       "wires": []
   },
   {
-      "id": "2913a14d.aa4e1e",
+      "id": "844e5523.e7cb88",
       "type": "ui_slider",
-      "z": "ed91000d.e405a",
+      "z": "5bf3c3b5.f76d5c",
       "name": "slider-11",
       "label": "angle",
-      "group": "3ecf487e.3328a8",
+      "group": "4b524cf6.b2e434",
       "order": 6,
       "width": 0,
       "height": 0,
@@ -617,17 +617,17 @@
       "y": 520,
       "wires": [
           [
-              "4ffb7131.ac902",
-              "813b6898.1fff78"
+              "76e52c7e.4b45c4",
+              "fadc32b.8ecc7d"
           ]
       ]
   },
   {
-      "id": "4ffb7131.ac902",
+      "id": "76e52c7e.4b45c4",
       "type": "ui_gauge",
-      "z": "ed91000d.e405a",
+      "z": "5bf3c3b5.f76d5c",
       "name": "gauge-11",
-      "group": "3ecf487e.3328a8",
+      "group": "4b524cf6.b2e434",
       "order": 5,
       "width": 0,
       "height": 0,
@@ -649,12 +649,12 @@
       "wires": []
   },
   {
-      "id": "250489aa.dacd16",
+      "id": "4efe3543.aee1dc",
       "type": "ui_slider",
-      "z": "ed91000d.e405a",
+      "z": "5bf3c3b5.f76d5c",
       "name": "slider-12",
       "label": "angle",
-      "group": "25e7e80a.d189b8",
+      "group": "f9b8d40f.f923c8",
       "order": 6,
       "width": 0,
       "height": 0,
@@ -667,17 +667,17 @@
       "y": 560,
       "wires": [
           [
-              "91c6142d.752ed8",
-              "813b6898.1fff78"
+              "e64de01c.4a41b",
+              "fadc32b.8ecc7d"
           ]
       ]
   },
   {
-      "id": "91c6142d.752ed8",
+      "id": "e64de01c.4a41b",
       "type": "ui_gauge",
-      "z": "ed91000d.e405a",
+      "z": "5bf3c3b5.f76d5c",
       "name": "gauge-12",
-      "group": "25e7e80a.d189b8",
+      "group": "f9b8d40f.f923c8",
       "order": 5,
       "width": 0,
       "height": 0,
@@ -699,12 +699,12 @@
       "wires": []
   },
   {
-      "id": "e1ff3104.50e78",
+      "id": "75bfd9bc.786c28",
       "type": "ui_slider",
-      "z": "ed91000d.e405a",
+      "z": "5bf3c3b5.f76d5c",
       "name": "slider-00",
       "label": "angle",
-      "group": "6c5986ae.086e68",
+      "group": "b7b041f0.c5ed4",
       "order": 2,
       "width": 0,
       "height": 0,
@@ -717,17 +717,17 @@
       "y": 80,
       "wires": [
           [
-              "3a6fa901.0efdf6",
-              "813b6898.1fff78"
+              "496eb26f.c2465c",
+              "fadc32b.8ecc7d"
           ]
       ]
   },
   {
-      "id": "3a6fa901.0efdf6",
+      "id": "496eb26f.c2465c",
       "type": "ui_gauge",
-      "z": "ed91000d.e405a",
+      "z": "5bf3c3b5.f76d5c",
       "name": "gauge-00",
-      "group": "6c5986ae.086e68",
+      "group": "b7b041f0.c5ed4",
       "order": 1,
       "width": 0,
       "height": 0,
@@ -749,62 +749,62 @@
       "wires": []
   },
   {
-      "id": "59ab61bf.f9432",
+      "id": "7d5d76ed.482548",
       "type": "ui_group",
       "z": "",
       "name": "Group 1",
-      "tab": "856e80bf.91dde",
+      "tab": "e58c54c7.257aa8",
       "order": 2,
       "disp": false,
       "width": "6",
       "collapse": false
   },
   {
-      "id": "799f8a.f923a078",
+      "id": "49a1e891.bc6ae8",
       "type": "ui_group",
       "z": "",
       "name": "Group 2",
-      "tab": "856e80bf.91dde",
+      "tab": "e58c54c7.257aa8",
       "order": 3,
       "disp": false,
       "width": "6",
       "collapse": false
   },
   {
-      "id": "3ecf487e.3328a8",
+      "id": "4b524cf6.b2e434",
       "type": "ui_group",
       "z": "",
       "name": "Group 3",
-      "tab": "856e80bf.91dde",
+      "tab": "e58c54c7.257aa8",
       "order": 4,
       "disp": false,
       "width": "6",
       "collapse": false
   },
   {
-      "id": "25e7e80a.d189b8",
+      "id": "f9b8d40f.f923c8",
       "type": "ui_group",
       "z": "",
       "name": "Group 4",
-      "tab": "856e80bf.91dde",
+      "tab": "e58c54c7.257aa8",
       "order": 5,
       "disp": false,
       "width": "6",
       "collapse": false
   },
   {
-      "id": "6c5986ae.086e68",
+      "id": "b7b041f0.c5ed4",
       "type": "ui_group",
       "z": "",
       "name": "Group 0",
-      "tab": "856e80bf.91dde",
+      "tab": "e58c54c7.257aa8",
       "order": 1,
       "disp": false,
       "width": "6",
       "collapse": false
   },
   {
-      "id": "856e80bf.91dde",
+      "id": "e58c54c7.257aa8",
       "type": "ui_tab",
       "z": "",
       "name": "Fab-IoT-Lab",
