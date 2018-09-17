@@ -3,6 +3,7 @@
 
 const char* ssid     = "MONS";
 const char* password = "Mons2017";
+const char* PING_URL = "http://192.168.1.2/red/node-00/ping";
 
 void setup() {
   Serial.begin(115200);
@@ -27,7 +28,7 @@ void setup() {
 void loop() {
   HTTPClient http;
   Serial.println("Pinging server");
-  http.begin("http://192.168.1.22/red/ping");
+  http.begin(PING_URL);
   int httpStatus = http.POST("");
   Serial.print("HTTP response: ");
   Serial.print(httpStatus);

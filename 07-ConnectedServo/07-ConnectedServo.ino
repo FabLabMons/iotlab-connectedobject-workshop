@@ -3,18 +3,16 @@
 #include <Servo.h>
 
 // Début configuration
-const char* NODE_ID = "node-00";
-const int MIN_PULSE_WIDTH_US = 900;
-const int MAX_PULSE_WIDTH_US = 2100;
-// Fin configuration
-
-const int ANGLE_DELAY_MS = 20;
-const int ANGLE_STEP = 5;
+const char* ANGLE_URL = "http://192.168.1.2/red/node-00/angle";
 const char* ssid     = "MONS";
 const char* password = "Mons2017";
+const int MIN_PULSE_WIDTH_US = 900;
+const int MAX_PULSE_WIDTH_US = 2100;
+const int ANGLE_DELAY_MS = 20;
+const int ANGLE_STEP = 5;
+// Fin configuration
 
 Servo myservo;
-String url;
 int currentAngle = 0;
 int desiredAngle = 0;
 
@@ -40,15 +38,13 @@ void setup() {
   myservo.attach(D1, MIN_PULSE_WIDTH_US, MAX_PULSE_WIDTH);
   myservo.write(0);
   delay(300);
-
-  url = String("http://192.168.1.22/red/") + NODE_ID + "/angle";
 }
 
 void loop() {
   
   HTTPClient http;
 
-  http.begin(url);
+  http.begin(ANGLE_URL);
   http.GET();
   String serverAnswer = http.getString();
   desiredAngle =  serverAnswer.toInt();
