@@ -63,12 +63,13 @@ void loop() {
   while (delta != 0) {
     if (delta > ANGLE_STEP) {
       currentAngle = currentAngle + ANGLE_STEP;
-    } else if (delta < ANGLE_STEP) {
+    } else if (delta < - ANGLE_STEP) {
       currentAngle = currentAngle - ANGLE_STEP;
     } else {
       currentAngle = currentAngle + delta;
     }
     myservo.write(currentAngle);
+    delta = desiredAngle - currentAngle;
     delay(ANGLE_DELAY_MS);
     Serial.print(".");
   }
