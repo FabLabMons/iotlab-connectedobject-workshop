@@ -15,16 +15,16 @@ void setup() {
 }
 
 void loop() {
-  if (millis() - lastChangeTimestamp > PULSE_PERIOD_MS) {
-    currentPulseWidth += pulseWidthStep;
-    if (currentPulseWidth > MAX_PULSE_WIDTH_US) {
-      currentPulseWidth = MAX_PULSE_WIDTH_US;
-      pulseWidthStep = -PULSE_STEP;
-    } else if (currentPulseWidth < MIN_PULSE_WIDTH_US) {
-      currentPulseWidth = MIN_PULSE_WIDTH_US;
-      pulseWidthStep = PULSE_STEP;
-    }
-    myservo.writeMicroseconds(currentPulseWidth);
-    lastChangeTimestamp = millis();
+  int pos;
+
+  for (pos = MIN_PULSE_WIDTH_US; pos <= MAX_PULSE_WIDTH_US; pos += PULSE_STEP) {
+    myservo.write(pos);
+    delay(PULSE_PERIOD_MS);
   }
+  delay(2000);
+  for (pos = MAX_PULSE_WIDTH_US; pos >= MIN_PULSE_WIDTH_US; pos -= PULSE_STEP) {
+    myservo.write(pos);
+    delay(PULSE_PERIOD_MS);
+  }
+  delay(2000);
 }
