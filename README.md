@@ -8,3 +8,7 @@
 ## Liens vers node-red
 
 http://192.168.1.57/red/
+
+## Driver USB CP2102
+
+https://www.silabs.com/documents/public/software/CP210x_Universal_Windows_Driver.zip
