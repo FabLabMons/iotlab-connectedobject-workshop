@@ -1,4 +1,4 @@
-# Atelier "Fabrique ton objet connecté"
+# Atelier "Réalise un objet connecté"
 
 ## Configuration ESP8266
 
